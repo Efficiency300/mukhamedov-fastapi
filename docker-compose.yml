@@ -1,0 +1,12 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: file-send
+    command: uvicorn server.main:app --host 0.0.0.0 --port 8080
+    ports:
+      - "8010:8080"
+    volumes:
+      - ./server:/app/server
+      - ./data:/app/data
